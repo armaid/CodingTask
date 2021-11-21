@@ -1,0 +1,13 @@
+{
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": "**/src.lwc/**/*.html",
+      "options": { "parser": "src.lwc" }
+    },
+    {
+      "files": "*.{cmp,page,component}",
+      "options": { "parser": "html" }
+    }
+  ]
+}
