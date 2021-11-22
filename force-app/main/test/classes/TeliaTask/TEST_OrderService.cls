@@ -91,10 +91,8 @@ public class TEST_OrderService
 
     public static Order prepareOrder(Integer orderItemSize)
     {
-        //Order newOrder = (Order) new sfab_FabricatedSObject(Order.class);
         sfab_FabricatedSObject fabricatedOrder = new sfab_FabricatedSObject(Order.class);
         addOrderItems(fabricatedOrder,orderItemSize);
-        //newOrder.OrderItems = orderItems;
         return (Order) fabricatedOrder.toSObject();
     }
 
