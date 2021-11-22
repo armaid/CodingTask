@@ -25,7 +25,6 @@ public class OrderService
 	private static List<Order> updateOrders(List<Order> orders)
 	{
 		List<Order> updatedOrderList = new List<Order>();
-		Order newOrder;
 
 		for (Order orderToUpdate : orders)
 		{
@@ -35,10 +34,9 @@ public class OrderService
 				throw new OrchestrationUnrecoverableException(EXCEPTION_TOOMANYITEMS);
 			}
 
-			newOrder = new Order(Id = orderToUpdate.Id);
-			newOrder.Item_Count__c = orderToUpdate.OrderItems.size();
+			orderToUpdate.Item_Count__c = orderToUpdate.OrderItems.size();
 
-			updatedOrderList.add(newOrder);
+			updatedOrderList.add(orderToUpdate);
 		}
 
 		return updatedOrderList;
