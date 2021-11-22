@@ -59,6 +59,20 @@ public class TEST_OrderService
         }
 	}
 
+    @IsTest
+	static void test_updateOrders_noItems()
+	{
+        Integer orderItemSize = 0;
+        List<Order> orders = new List<Order>{prepareOrder(orderItemSize)};
+
+        List<Order> updatedOrders = OrderService.updateOrders(orders);
+
+        for (Order o : updatedOrders)
+        {
+            System.assertEquals(orderItemSize, o.Item_Count__c);
+        }
+	}
+
 	@IsTest
 	static void test_updateOrders_throwException()
 	{
